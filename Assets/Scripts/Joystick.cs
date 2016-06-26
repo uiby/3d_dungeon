@@ -17,50 +17,53 @@ public class Joystick : MonoBehaviour {
 		set {isPush = value;}
 	}
 
+  private MainCanvas mainCanvas;
 	private Vector2 initPos;
 	private float _maxRadius;
 	private const float MAX_RADIUS_RATE = 0.55f;
 
 	//初期化
   void Awake() {
+  	mainCanvas = GameObject.Find("MainCanvas").GetComponent<MainCanvas>();
 		attachJoystickSprite = GameObject.Find("MainCanvas/Joystick/JoystickBackSprite/JoystickSprite");
 		attachJoystickBackSprite = GameObject.Find("MainCanvas/Joystick/JoystickBackSprite");
 		initPos = attachJoystickSprite.transform.localPosition;
 		_position = Vector2.zero;
-		_maxRadius = 100 * MAX_RADIUS_RATE;//attachJoystickBackSprite.GetComponent<RectTransform>().sizeDelta.y * MAX_RADIUS_RATE;
+		_maxRadius = attachJoystickBackSprite.GetComponent<RectTransform>().sizeDelta.y * MAX_RADIUS_RATE;
 	}
 
 	//更新
-	void Update () {
-	  DisplayConfirmation();
+	void FixedUpdate() {
+	  TouchJoystick();
 	  Move();
 	}
 
-	private void DisplayConfirmation() {
+	//ジョイスティックをtouchしてるかどうか判断
+	private void TouchJoystick() {
 		if (Input.GetMouseButtonDown(0)) {
 			Vector2 tapPoint = Input.mousePosition;
 			Vector2 joystickPos = attachJoystickSprite.transform.position;
 			Vector2 margin = attachJoystickSprite.GetComponent<RectTransform>().sizeDelta;
 			if (tapPoint.x >= joystickPos.x - margin.x/2 && tapPoint.x <= joystickPos.x + margin.x/2 &&
 				  tapPoint.y >= joystickPos.y - margin.y/2 && tapPoint.y <= joystickPos.y + margin.y/2) {
+				//ジャンプ中かどうか
+				if (!mainCanvas.IsJump) {
 				isPush = true;
 				//Debug.Log(attachJoystickSprite.transform.localPosition+":"+Input.mousePosition + ":" + attachJoystickSprite.GetComponent<RectTransform>().sizeDelta);
+			  target.GetComponent<Animator>().SetInteger("Mode", 1);
+			  }
 			}
-			/*Vector3 aTapPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			Collider2D aCollider2d = Physics2D.OverlapPoint(aTapPoint);
-			if (aCollider2d) {
-				Debug.Log(aCollider2d.transform.gameObject.name);
-				if (aCollider2d.transform.gameObject.tag == "Joystick") isPush = true;
-			}*/
 		}
 		else if (Input.GetMouseButtonUp(0)) {
-			Debug.Log("OK");
 			isPush = false;
 			_position = Vector2.zero;
 			attachJoystickSprite.transform.localPosition = initPos;
 			target.GetComponent<Rigidbody>().velocity = new Vector3(0, 0 , 0);
+			target.GetComponent<Animator>().SetInteger("Mode", 0);
 		}
 	}
+
+	//自機の移動
 	private void Move() {
 		if (!isPush)  return;
 		Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -71,7 +74,7 @@ public class Joystick : MonoBehaviour {
 
 		//角度
 		float radian = CalcRadian(Vector3.zero, attachJoystickSprite.transform.localPosition);		
-		if(radius > _maxRadius){
+		if (radius > _maxRadius) {
 			Vector3 setVec = Vector3.zero;
 			setVec.x = _maxRadius * Mathf.Cos (radian);
 			setVec.y = _maxRadius * Mathf.Sin (radian);
@@ -88,6 +91,7 @@ public class Joystick : MonoBehaviour {
 		//ターゲットの移動
 		target.GetComponent<Rigidbody>().velocity = new Vector3(_position.x, 0 , _position.y) * 4;
 		target.transform.rotation = Quaternion.Euler(new Vector3(0,-radian * Mathf.Rad2Deg + 90,0));
+		//Debug.Log(-radian * Mathf.Rad2Deg + 90);
 	}
 
 	//2点間の角度を求める
@@ -95,7 +99,6 @@ public class Joystick : MonoBehaviour {
 		float dx = to.x - from.x;
 		float dy = to.y - from.y;
 		float radian = Mathf.Atan2(dy, dx);
-		Debug.Log(radian * Mathf.Rad2Deg);
 		return radian;
 	}
 }

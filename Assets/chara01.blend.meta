@@ -39,6 +39,8 @@ ModelImporter:
     7400000: Default Take
     7400002: ArmatureAction
     7400004: Walk
+    7400006: Pose
+    7400008: Step
     9500000: //RootNode
     13700000: Robot
   materials:
@@ -61,7 +63,239 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Master
+        weight: 1
+      - path: Armature/Master/Body
+        weight: 1
+      - path: Armature/Master/Body/Hip_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_L/Leg_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_R
+        weight: 1
+      - path: Armature/Master/Body/Hip_R/Leg_R
+        weight: 1
+      - path: Armature/Master/Body/Neck
+        weight: 1
+      - path: Armature/Master/Body/Neck/Head
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L/Hand_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R/Hand_R
+        weight: 1
+      - path: Robot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Pose
+      takeName: Pose
+      firstFrame: -1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Master
+        weight: 1
+      - path: Armature/Master/Body
+        weight: 1
+      - path: Armature/Master/Body/Hip_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_L/Leg_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_R
+        weight: 1
+      - path: Armature/Master/Body/Hip_R/Leg_R
+        weight: 1
+      - path: Armature/Master/Body/Neck
+        weight: 1
+      - path: Armature/Master/Body/Neck/Head
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L/Hand_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R/Hand_R
+        weight: 1
+      - path: Robot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Step
+      takeName: Step
+      firstFrame: -1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Master
+        weight: 1
+      - path: Armature/Master/Body
+        weight: 1
+      - path: Armature/Master/Body/Hip_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_L/Leg_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_R
+        weight: 1
+      - path: Armature/Master/Body/Hip_R/Leg_R
+        weight: 1
+      - path: Armature/Master/Body/Neck
+        weight: 1
+      - path: Armature/Master/Body/Neck/Head
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L/Hand_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R/Hand_R
+        weight: 1
+      - path: Robot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: -1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Master
+        weight: 1
+      - path: Armature/Master/Body
+        weight: 1
+      - path: Armature/Master/Body/Hip_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_L/Leg_L
+        weight: 1
+      - path: Armature/Master/Body/Hip_R
+        weight: 1
+      - path: Armature/Master/Body/Hip_R/Leg_R
+        weight: 1
+      - path: Armature/Master/Body/Neck
+        weight: 1
+      - path: Armature/Master/Body/Neck/Head
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_L/Hand_L
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R
+        weight: 1
+      - path: Armature/Master/Body/Shoulder_R/Hand_R
+        weight: 1
+      - path: Robot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
